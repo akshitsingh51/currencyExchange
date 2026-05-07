@@ -1,0 +1,24 @@
+body{
+    background: rgb(46, 50, 49);
+    color: wheat;
+}
+form, h1{
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+input{
+    width: 100px;
+    height: 25px
+}
+div{
+    padding-top: 50px;
+    background: rgb(46, 50, 49);
+    color: wheat;
+    display: flex;
+    justify-content: center;
+}

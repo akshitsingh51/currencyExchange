@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Currency Exchange</title>
+        <link rel="stylesheet" href="style.css">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('form').onsubmit = () => {
+                    const from = document.querySelector('#firstCurrency').value.toLowerCase();
+                    const to = document.querySelector('#secondCurrency').value.toLowerCase();
+                    fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${from}.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        const result = data[from][to]
+                        if(document.querySelector('#result') !== undefined) {
+                            document.querySelector('#result').innerHTML = `1 ${from} equals to ${result} ${to}`
+                        } else {
+                            document.querySelector('#result').innerHTML = "Invalid Currency."
+                        }
+                    })
+                    .catch(error => {
+                        console.log('Error: ', error);
+                    })
+                    return false;
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <h1>Currency Exchange</h1>
+        <form>
+            <input autofocus id="firstCurrency" placeholder="eg. USD" type="text" >
+            <p style="color: wheat">to</p>
+            <input id="secondCurrency" placeholder="eg. INR" type="text">
+            <input type="submit" value="Convert">
+        </form>
+        <div id="result"></div>
+    </body>
+</html>
