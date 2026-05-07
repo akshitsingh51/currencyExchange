@@ -101,7 +101,7 @@ Output:
 
 ## Author
 
-Made by Akshit Singh
+Made by Akshit Kumar
 
 GitHub Repository:
 
